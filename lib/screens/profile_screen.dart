@@ -44,14 +44,14 @@ class ProfileScreen extends StatelessWidget {
             
             // User Info
             const Text(
-              'John Doe',
+              'Inuka Jayasinghe',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const Text(
-              'john.doe@example.com',
+              'inukajayasinghe@gmail.com',
               style: TextStyle(color: Colors.grey),
             ),
             const SizedBox(height: 24),
