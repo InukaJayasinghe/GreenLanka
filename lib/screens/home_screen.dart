@@ -73,6 +73,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 24),
             
             // Quick Actions Grid
+            // 
             GridView.count(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
