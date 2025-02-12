@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 60,
-                  backgroundImage: NetworkImage(
-                    'https://via.placeholder.com/120',
-                  ),
+                  backgroundImage: AssetImage('images/profile_picture.jpeg'), // Use local image
                 ),
                 Positioned(
                   bottom: 0,
@@ -41,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            
+
             // User Info
             const Text(
               'Inuka Jayasinghe',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EducationScreen extends StatelessWidget {
-  const EducationScreen({Key? key}) : super(key: key);
+  const EducationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,28 +18,33 @@ class EducationScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            _buildArticlesList(),
-            _buildVideosList(),
-            _buildTipsList(),
+            ArticlesList(),  
+            VideosList(),
+            TipsList(),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildArticlesList() {
+class ArticlesList extends StatelessWidget {
+  const ArticlesList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     final articles = [
       {
         'title': 'Sri Lankan Leopard: A Threatened Species',
         'description': 'Learn about the endangered Sri Lankan leopard...',
-        'image': 'https://example.com/leopard.jpg',
+        'image': 'images/sri_lankan_leopard.jpeg',
       },
       {
         'title': 'Deforestation in Sri Lanka',
         'description': 'Understanding the impact of deforestation...',
-        'image': 'https://example.com/forest.jpg',
+        'image': 'images/deforestation_of_sri_lanka.jpeg',
       },
     ];
 
@@ -53,12 +58,18 @@ class EducationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 200,
-                width: double.infinity,
-                color: Colors.grey.shade200,
-                child: const Center(
-                  child: Icon(Icons.photo, size: 48),
+              ClipRRect(
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                child: Image.asset(
+                  article['image']!, // Use Image.asset() for local images
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => Container(
+                    height: 200,
+                    color: Colors.grey.shade300,
+                    child: const Icon(Icons.broken_image, size: 48),
+                  ),
                 ),
               ),
               Padding(
@@ -91,14 +102,24 @@ class EducationScreen extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _buildVideosList() {
+class VideosList extends StatelessWidget {
+  const VideosList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return const Center(
       child: Text('Videos coming soon...'),
     );
   }
+}
 
-  Widget _buildTipsList() {
+class TipsList extends StatelessWidget {
+  const TipsList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     final tips = [
       'Plant native trees in your garden',
       'Reduce plastic usage',

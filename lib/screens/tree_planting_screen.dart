@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TreePlantingScreen extends StatefulWidget {
-  const TreePlantingScreen({Key? key}) : super(key: key);
+  const TreePlantingScreen({super.key});
 
   @override
   State<TreePlantingScreen> createState() => _TreePlantingScreenState();
