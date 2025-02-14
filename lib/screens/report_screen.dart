@@ -95,7 +95,7 @@ class _ReportScreenState extends State<ReportScreen> {
               ),
               const SizedBox(height: 24),
 
-              // Location Map Placeholder
+              // Location Map Image
               Container(
                 height: 200,
                 width: double.infinity,
@@ -103,8 +103,15 @@ class _ReportScreenState extends State<ReportScreen> {
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Center(
-                  child: Text('Map will be displayed here'),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'images/map.png', // Ensure this image exists in your assets folder
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Center(child: Text('Map image not found'));
+                    },
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
